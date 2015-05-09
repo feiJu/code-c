@@ -1,32 +1,54 @@
 #include <stdio.h>
+#include <string.h>
 
-void evaluate(int array[10]);
-void show(int array[10]);
+// 声明函数
+void evaluate(int iArrName[]);		// 数组长度变长的形参 赋值函数
+void display(int iArrName[]);		// 显示函数
 
 int main(){
-	
-	int arr[10];
+	int iArray[10];
 
-	evaluate(arr);		// 给数组赋值
-	show(arr);	// 遍历数组
-	
+	evaluate(iArray);
+
+	printf("\n");
+
+	display(iArray);
+
 	return 0;
 }
 
-void evaluate(int array[10]){
+/**
+ * 给传入的数组赋值
+ *
+ */ 
+void evaluate(int iArrName[]){
 	
 	int i;
 	
 	for(i=0;i<10;i++){
-		array[i] = i+1;
+
+		printf("-------i=%d ",i);
+
+		iArrName[i] = i*i;
 	}
+
+
 }
 
-void show(int array[10]){
+/**
+ * 将传入的参数打印出来
+ * 
+ */ 
+void display(int iArrName[]){
 	
-	int i = 0;
+	int i; 
+	int length = sizeof(iArrName);
+
+	printf("---------length=%d \n",length);
 
 	for(i=0;i<10;i++){
-		printf("第%d个值为%d \n",i,array[i]);
+	
+		printf("第%d个数的值为：%d\n",i,iArrName[i]);
 	}
-}
+
+}		// 显示函数
